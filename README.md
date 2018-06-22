@@ -9,8 +9,9 @@
 ### 3.参数说明
 
 #### 必填字段
-##### <font color=#00ffff>packageName</font>：生成文件所在的包
-##### <font color=#00ffff>srcPath</font>：文件生成的位置
+<pre><code> ##### packageName：生成文件所在的包
+##### srcPath：文件生成的位置
+</code></pre>
 
 
 #### 可选字段
