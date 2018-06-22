@@ -22,7 +22,7 @@
 
 #### 最后选择要生成的文件：
 <pre><code>
-    可以选择的文件有:
+	可以选择的文件有:
     pojo
     mapper
     iRepository
