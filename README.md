@@ -23,12 +23,13 @@
 
 #### 最后选择要生成的文件：
 <pre><code>
-    可以选择的文件有
+    可以选择的文件有:
     pojo
     mapper
     iRepository
     repository
     service
     sqlXml
+    
     选中文件后，可以指定这些文件所在的子工程
 </code></pre>
