@@ -30,6 +30,11 @@
             <td><input type="text" name="destPath" class="input-text" value="${(config.destPath)!}"/></td>
             <td><span>example: D:\workspace2\customer-producer\bf_service_customer_producer\</span></td>
         </tr>
+        <tr>
+            <td>数据库表：</td>
+            <td><input type="text" name="tableNames" class="input-text" value="${tableNames!}"/></td>
+            <td><span>example: users,role（如不指定表，默认生成数据库所有表）</span></td>
+        </tr>
     </table>
     <table>
         <tr style="height: 60px;">

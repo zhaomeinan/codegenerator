@@ -101,7 +101,8 @@ public class JavaType {
             case java.sql.Types.TIMESTAMP:
                 return java.util.Date.class.getName();
             case java.sql.Types.TINYINT:
-                return Byte.class.getSimpleName();
+//                return Byte.class.getSimpleName();
+                return Integer.class.getSimpleName();
             case java.sql.Types.VARBINARY:
                 return "byte[]";
             case java.sql.Types.VARCHAR:
