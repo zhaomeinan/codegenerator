@@ -9,24 +9,26 @@
 ### 3.参数说明
 
 #### 必填字段
-<pre><code> ##### packageName：生成文件所在的包
-##### srcPath：文件生成的位置
+<pre><code>
+	packageName：生成文件所在的包
+    srcPath：文件生成的位置
 </code></pre>
 
 
 #### 可选字段
-##### destPath：如果想将代码生成到工程代码的位置，可以在该选项中输入工程主目录位置
-##### 数据库表：输入表名，指定要生成数据库哪个表的相应代码，多个表用逗号分隔，如不输入值，默认生成所有表的
-
+<pre><code>
+    destPath：如果想将代码生成到工程代码的位置，可以在该选项中输入工程主目录位置
+    数据库表：输入表名，指定要生成数据库哪个表的相应代码，多个表用逗号分隔，如不输入值，默认生成所有表的
+</code></pre>
 
 #### 最后选择要生成的文件：
-##### 可以选择的文件有
-
-##### pojo
-##### mapper
-##### iRepository
-##### repository
-##### service
-##### sqlXml
-
-##### 选中文件后，可以指定这些文件所在的子工程
+<pre><code>
+    可以选择的文件有
+    pojo
+    mapper
+    iRepository
+    repository
+    service
+    sqlXml
+    选中文件后，可以指定这些文件所在的子工程
+</code></pre>
