@@ -10,10 +10,9 @@
 
 #### 必填字段
 <pre><code>
-	packageName：生成文件所在的包
+jsjfsjfpackageName：生成文件所在的包
     srcPath：文件生成的位置
 </code></pre>
-
 
 #### 可选字段
 <pre><code>
@@ -30,6 +29,6 @@
     repository
     service
     sqlXml
-    
+
     选中文件后，可以指定这些文件所在的子工程
 </code></pre>
