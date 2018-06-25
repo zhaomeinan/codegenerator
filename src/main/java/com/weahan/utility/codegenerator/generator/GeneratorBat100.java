@@ -125,7 +125,7 @@ public class GeneratorBat100 {
     }
 
     public void copyAll() {
-        String filePath = config.getSrcPath() +
+        String filePath = config.getSrcPath() + File.separator +
                 config.getPackageName().replace(".", File.separator) + File.separator;
 
         String packagePath = config.getPackageName().replace(".", File.separator);
