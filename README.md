@@ -10,7 +10,7 @@
 
 #### 必填字段
 <pre><code>
-    packageName：生成文件所在的包
+    packageName：生成文件所在的包，不要写磁盘根目录
     srcPath：文件生成的位置
 </code></pre>
 
@@ -31,4 +31,12 @@
     sqlXml
 
     选中文件后，可以指定这些文件所在的子工程，不指定默认生成在主目录下
+</code></pre>
+
+### 4.修改数据库连接
+<pre><code>
+    数据库地址需到代码里找到application.properties文件，将连接信息改成自己想要使用的数控地址
+    weahan.code.generator.db.connectionUrl：数据库连接
+    weahan.code.generator.db.connectionUser：账号
+    weahan.code.generator.db.connectionPass：密码
 </code></pre>

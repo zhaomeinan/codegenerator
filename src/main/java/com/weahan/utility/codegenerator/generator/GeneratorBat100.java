@@ -74,7 +74,7 @@ public class GeneratorBat100 {
     }
 
     public void generate(String[] tableNamesIn) throws Exception {
-        CopyFile.deleteSrcFiles(new File(config.getSrcPath()));
+        //CopyFile.deleteSrcFiles(new File(config.getSrcPath()));
 
         // 根据配置定义
         initTemplates();

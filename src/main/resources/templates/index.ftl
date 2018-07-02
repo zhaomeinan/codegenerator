@@ -23,7 +23,7 @@
         <tr>
             <td>srcPath：</td>
             <td><input type="text" name="srcPath" class="input-text" value="${(config.srcPath)!}"/></td>
-            <td><span>example: D:\generate\</span></td>
+            <td><span>example: D:\generate\    （不要写磁盘根目录）</span></td>
         </tr>
         <tr>
             <td>destPath：</td>
