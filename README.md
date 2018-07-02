@@ -35,8 +35,9 @@
 
 ### 4.修改数据库连接
 <pre><code>
-    数据库地址需到代码里找到application.properties文件，将连接信息改成自己想要使用的数控地址
+    数据库地址需到代码里找到application.properties文件，将连接信息改成自己想要使用的数据库地址
     weahan.code.generator.db.connectionUrl：数据库连接
     weahan.code.generator.db.connectionUser：账号
     weahan.code.generator.db.connectionPass：密码
+    具体写法参照application.properties文件
 </code></pre>
