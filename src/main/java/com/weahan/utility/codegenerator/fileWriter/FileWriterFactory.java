@@ -75,8 +75,11 @@ public class FileWriterFactory {
                     packageName = table.getPackageName() + ".provider.interfaces";
                     break;
                 case EnumTemplateType.SERVICE:
-                    fileName = table.getClassName_d() + "Service" + ".java";
-                    packageName = table.getPackageName() + ".provider.service";
+//                    fileName = table.getClassName_d() + "Service" + ".java";
+//                    packageName = table.getPackageName() + ".provider.service";
+//                    break;
+                    fileName = table.getClassName_d() + "Controller" + ".java";
+                    packageName = table.getPackageName() + ".provider.controller";
                     break;
                 case EnumTemplateType.IREPOSITORY:
                     fileName = "repository" + File.separator + "irepository" + File.separator + "I" +

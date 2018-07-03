@@ -185,9 +185,9 @@ public class TableUtil {
         Map map = new HashMap();
         ResultSetMetaData rsmd = rs.getMetaData();
         int cols = rsmd.getColumnCount();
-        for (int i = 1; i <= cols; i++)
+        for (int i = 1; i <= cols; i++) {
             map.put(rsmd.getColumnName(i), rs.getObject(i));
-
+        }
         return map;
     }
 
@@ -290,6 +290,9 @@ public class TableUtil {
             // 小写表名称
             String className_x = StringUtil.lowerFirst(PinYinUtil.getFirstSpell(StringUtil.newTableName(tableName)));
 
+            // 中划线表名称
+            String className_strike = tableName.replaceAll("_","-");
+
             // 表索引
             List<TableIndex> tableIndexs = getTableIndexs(conn, tableName);// 表索引
 
@@ -368,7 +371,7 @@ public class TableUtil {
                 }
             }
 
-            table = new Table(tableName, className_d, className_x, config.getPackageName(), tableCarrays, tableIndexs, tableBinds,
+            table = new Table(tableName, className_d, className_x, className_strike,config.getPackageName(), tableCarrays, tableIndexs, tableBinds,
                     upperTableNames, stringCarrayNames1, stringCarrayNames2, stringCarrayNames3, stringCarrayNames4,
                     stringCarrayNames5, stringCarrayNames6, stringCarrayNames7, config.getProjectName(),
                     config.getModuleName());

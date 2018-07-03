@@ -44,37 +44,37 @@
             <td><input type="checkbox" name="openPojo" id="openPojo" <#if (config.openPojo)??><#if (config.openPojo)?string( "true", "false") == 'true'> checked="checked"</#if></#if>><label for="openPojo">pojo</label>
                 &nbsp;&nbsp;&nbsp;
                 pojoModuleName：<input type="text" name="pojoModuleName" class="input-text" value="${(config.pojoModuleName)!}"/></td>
-            <td><span>example: customer_producer_models</span></td>
+            <td><span>example: customer-producer-models</span></td>
         </tr>
         <tr>
             <td><input type="checkbox" name="openMapper" id="openMapper" <#if (config.openMapper)??><#if (config.openMapper)?string( "true", "false") == 'true'> checked="checked"</#if></#if>><label for="openMapper">mapper</label>
                 &nbsp;&nbsp;&nbsp; mapperModuleName：
                 <input type="text" name="mapperModuleName" class="input-text" value="${(config.mapperModuleName)!}"/></td>
-            <td><span>example: customer_producer_repository</span></td>
+            <td><span>example: customer-producer-repository</span></td>
         </tr>
         <tr>
             <td><input type="checkbox" name="openIRepository" id="openIRepository" <#if (config.openIRepository)??><#if (config.openIRepository)?string( "true", "false") == 'true'> checked="checked"</#if></#if>><label for="openIRepository">iRepository</label>
                 &nbsp;&nbsp;&nbsp;
                 iRepositoryModuleName：  <input type="text" name="iRepositoryModuleName" class="input-text" value="${(config.iRepositoryModuleName)!}"/></td>
-            <td><span>example: customer_producer_repository</span></td>
+            <td><span>example: customer-producer-repository</span></td>
         </tr>
         <tr>
             <td><input type="checkbox" name="openRepository" id="openRepository" <#if (config.openRepository)??><#if (config.openRepository)?string( "true", "false") == 'true'> checked="checked"</#if></#if>><label for="openRepository">repository</label>
                 &nbsp;&nbsp;&nbsp;
                 repositoryModuleName：  <input type="text" name="repositoryModuleName" class="input-text" value="${(config.repositoryModuleName)!}"/></td>
-            <td><span>example: customer_producer_repository</span></td>
+            <td><span>example: customer-producer-repository</span></td>
         </tr>
         <tr>
-            <td><input type="checkbox" name="openService" id="openService" <#if (config.openService)??><#if (config.openService)?string( "true", "false") == 'true'> checked="checked"</#if></#if>><label for="openService">service</label>
+            <td><input type="checkbox" name="openService" id="openService" <#if (config.openService)??><#if (config.openService)?string( "true", "false") == 'true'> checked="checked"</#if></#if>><label for="openService">controller</label>
                 &nbsp;&nbsp;&nbsp;
-                serviceModuleName：  <input type="text" name="serviceModuleName" class="input-text" value="${(config.serviceModuleName)!}"/></td>
-            <td><span>example: customer_producer_services</span></td>
+                controllerModuleName：  <input type="text" name="serviceModuleName" class="input-text" value="${(config.serviceModuleName)!}"/></td>
+            <td><span>example: customer-producer-controller</span></td>
         </tr>
         <tr>
             <td><input type="checkbox" name="openSqlXml" id="openSqlXml" <#if (config.openSqlXml)??><#if (config.openSqlXml)?string( "true", "false") == 'true'> checked="checked"</#if></#if>><label for="openSqlXml">sqlXml</label>
                 &nbsp;&nbsp;&nbsp;
                 sqlXmlDestPath：  <input type="text" name="sqlXmlDestPath" class="input-text" value="${(config.sqlXmlDestPath)!}"/></td>
-            <td><span>example: customer_producer_web\src\main\resources\mybatis\mapper\</span></td>
+            <td><span>example: customer-producer-web\src\main\resources\mybatis\mapper</span></td>
         </tr>
         <tr style="height: 100px;"><td><input type="submit" value="提交"></td></tr>
     </table>

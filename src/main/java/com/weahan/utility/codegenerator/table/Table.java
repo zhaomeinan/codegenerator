@@ -20,6 +20,8 @@ public class Table {
 
     private String className_x;// 小写表名称
 
+    private String className_strike;// 表的下划线该中划线表名称
+
     private String packageName;
 
     private List<TableCarray> tableCarrays;// 表字段
@@ -56,7 +58,7 @@ public class Table {
 
     private String providerUri;//consumer中调用service的providerUri
 
-    public Table(String className, String classNameD, String classNameX, String packageName,
+    public Table(String className, String classNameD, String classNameX, String classNameStrike,String packageName,
                  List<TableCarray> tableCarrays, List<TableIndex> tableIndexs, List<TableBind> tableBinds,
                  Set<String> importPojos, String stringCarrayNames1, String stringCarrayNames2, String stringCarrayNames3,
                  String stringCarrayNames4, String stringCarrayNames5, String stringCarrayNames6, String stringCarrayNames7,
@@ -65,6 +67,7 @@ public class Table {
         this.className = className;
         className_d = classNameD;
         className_x = classNameX;
+        this.className_strike = classNameStrike;
         this.packageName = packageName;
         this.tableCarrays = tableCarrays;
         this.tableIndexs = tableIndexs;
@@ -137,6 +140,14 @@ public class Table {
 
     public void setClassName_x(String classNameX) {
         className_x = classNameX;
+    }
+
+    public String getClassName_strike() {
+        return className_strike;
+    }
+
+    public void setClassName_strike(String className_strike) {
+        this.className_strike = className_strike;
     }
 
     public List<TableCarray> getTableCarrays() {

@@ -150,8 +150,8 @@ public class GeneratorBat100 {
 
             if (config.getOpenService()) {
                 // 2、copy service
-                String serviceFileName = fileName + "Service.java";
-                CopyFile.copy(filePath + "provider" + File.separator + "service" +
+                String serviceFileName = fileName + "Controller.java";
+                CopyFile.copy(filePath + "provider" + File.separator + "controller" +
                                 File.separator + serviceFileName,
                         config.getDestPath() +
                                 File.separator + config.getServiceModuleName() +
@@ -159,7 +159,7 @@ public class GeneratorBat100 {
                                 File.separator + "main" +
                                 File.separator + "java" +
                                 File.separator + packagePath +
-                                File.separator + "service" +
+                                File.separator + "controller" +
                                 File.separator + serviceFileName);
             }
 
