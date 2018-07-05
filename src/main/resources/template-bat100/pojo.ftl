@@ -11,6 +11,7 @@ public class ${className_d} implements Serializable{
 
     <#--列出所有的字段 -->
     <#list tableCarrays as tableCarray>
+    /** ${tableCarray.remark} */
     private ${tableCarray.carrayType} ${tableCarray.carrayName_x};
 	</#list>
 
