@@ -126,4 +126,23 @@
         </if>
     </select>
 
+    <update id="updateByCode" parameterType="${packageName}.models.${className_d}">
+        update ${className}
+        <set>
+        <#list tableCarrays as tableCarray>
+            <#if tableCarray_index != 0>
+                <#if tableCarray.carrayName_x !="createtime" && tableCarray.carrayName_x !="updatetime">
+                    <#if tableCarray.carrayType=="String">
+                    <if test="${tableCarray.carrayName_x} !=null and ${tableCarray.carrayName_x}!=''">
+                    <#else>
+                    <if test="${tableCarray.carrayName_x} !=null">
+                    </#if>
+                ${tableCarray.carrayName}=<@mapperEl tableCarray.carrayName_x/>,
+                </if>
+                </#if>
+            </#if>
+        </#list>
+        </set>
+        where bf_code=<@mapperEl "bfCode" />
+    </update>
 </mapper>

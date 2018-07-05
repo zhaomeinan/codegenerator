@@ -52,4 +52,9 @@ public class ${className_d}Controller{
     public List<${className_d}> getByMapList(@RequestParam Map<String,Object> map){
         return ${className_x}Repository.getByMapList(map);
     }
+
+    @PutMapping("${className_strike}/by-code")
+    public int updateByCode(${className_d} ${className_x}) {
+        return ${className_x}Repository.updateByCode(${className_x});
+    }
 }

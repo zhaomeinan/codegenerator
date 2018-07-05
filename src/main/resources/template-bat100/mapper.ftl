@@ -21,4 +21,6 @@ public interface ${className_d}Mapper{
     List<Long> getByMap(Map<String,Object> map);
 
     List<${className_d}> getByMapList(Map<String,Object> map);
+
+    int updateByCode(${className_d} ${className_x});
 }

@@ -52,4 +52,8 @@ public class ${className_d}Repository implements I${className_d}Repository{
         return ${className_x}Mapper.getByMapList(map);
     }
 
+    @Override
+    public int updateByCode(${className_d} ${className_x}){
+        return ${className_x}Mapper.updateByCode(${className_x});
+    }
 }
