@@ -24,7 +24,13 @@
         )
         values(
     <#list tableCarrays as tableCarray>
+        <#if tableCarray.carrayName_x =="gmtCreateTime" || tableCarray.carrayName_x =="gmtModifyTime">
+        NOW()<#if (tableCarray_has_next)>,</#if>
+        <#elseif tableCarray.carrayName_x =="recStatus">
+        0<#if (tableCarray_has_next)>,</#if>
+        <#else>
         <@mapperEl tableCarray.carrayName_x/><#if (tableCarray_has_next)>,</#if>
+        </#if>
     </#list>
         )
     </insert>
@@ -32,24 +38,27 @@
     <update id="update" parameterType="${packageName}.models.${className_d}">
         update ${className}
         <set>
-<#list tableCarrays as tableCarray>
-    <#if tableCarray_index != 0>
-        <#if tableCarray.carrayName_x !="createtime" && tableCarray.carrayName_x !="updatetime">
+    <#list tableCarrays as tableCarray>
+        <#if tableCarray_index != 0 && tableCarray.carrayName_x != 'bfCode' && tableCarray.carrayName_x !="gmtCreateTime" && tableCarray.carrayName_x !="createUserId">
+            <#if tableCarray.carrayName_x=="gmtModifyTime">
+            ${tableCarray.carrayName}=NOW(),
+            <#else>
             <#if tableCarray.carrayType=="String">
             <if test="${tableCarray.carrayName_x} !=null and ${tableCarray.carrayName_x}!=''">
             <#else>
             <if test="${tableCarray.carrayName_x} !=null">
             </#if>
-                ${tableCarray.carrayName}=<@mapperEl tableCarray.carrayName_x/>,
+            ${tableCarray.carrayName}=<@mapperEl tableCarray.carrayName_x/>,
             </if>
+            </#if>
         </#if>
-    </#if>
-</#list>
+    </#list>
         </set>
         where id=<@mapperEl "id" />
+          and rec_status = 0
     </update>
 
-    <delete id="delete" parameterType="java.lang.Long">
+    <delete id="delete" parameterType="java.lang.Integer">
         DELETE
         FROM
         ${className}
@@ -57,38 +66,43 @@
         id = <@mapperEl "id" />
     </delete>
 
-    <select id="select" parameterType="java.lang.Long" resultMap="${className_d}ResultMap">
+    <select id="select" parameterType="java.lang.Integer" resultMap="${className_d}ResultMap">
         select
         <include refid="${className_d}Columns"/>
         from
         ${className}
         WHERE
         id = <@mapperEl "id" />
+        and rec_status = 0
     </select>
 
     <sql id="dynamicWhere">
     <#list tableCarrays as tableCarray>
-        <#if tableCarray.carrayType=="String">
-        <if test="${tableCarray.carrayName_x} !=null and ${tableCarray.carrayName_x}!=''">
+        <#if tableCarray.carrayName_x != "recStatus">
+            <#if tableCarray.carrayType=="String">
+            <if test="${tableCarray.carrayName_x} !=null and ${tableCarray.carrayName_x}!=''">
+            <#else>
+            <if test="${tableCarray.carrayName_x} !=null">
+            </#if>
+                <if test="${tableCarray.carrayName_x}Co ==null">
+                    and ${tableCarray.carrayName}=<@mapperEl tableCarray.carrayName_x/>
+                </if>
+                <if test="${tableCarray.carrayName_x}Co !=null">
+                    and ${tableCarray.carrayName} <@mapperEl3 tableCarray.carrayName_x/> <@mapperEl tableCarray.carrayName_x/>
+                </if>
+            </if>
         <#else>
-        <if test="${tableCarray.carrayName_x} !=null">
+            and rec_status=0
         </#if>
-            <if test="${tableCarray.carrayName_x}Co ==null">
-                and ${tableCarray.carrayName}=<@mapperEl tableCarray.carrayName_x/>
-            </if>
-            <if test="${tableCarray.carrayName_x}Co !=null">
-                and ${tableCarray.carrayName} <@mapperEl3 tableCarray.carrayName_x/> <@mapperEl tableCarray.carrayName_x/>
-            </if>
-        </if>
     </#list>
     </sql>
 
-    <select id="cntByMap" parameterType="java.util.Map" resultType="java.lang.Long">
+    <select id="cntByMap" parameterType="java.util.Map" resultType="java.lang.Integer">
         select count(*) from ${className} where 1=1
         <include refid="dynamicWhere" />
     </select>
 
-    <select id="getByMap" parameterType="java.util.Map" resultType="java.lang.Long">
+    <select id="getByMap" parameterType="java.util.Map" resultType="java.lang.Integer">
         select id from ${className} where 1=1
 
         <include refid="dynamicWhere" />
@@ -129,20 +143,33 @@
     <update id="updateByCode" parameterType="${packageName}.models.${className_d}">
         update ${className}
         <set>
-        <#list tableCarrays as tableCarray>
-            <#if tableCarray_index != 0>
-                <#if tableCarray.carrayName_x !="createtime" && tableCarray.carrayName_x !="updatetime">
-                    <#if tableCarray.carrayType=="String">
-                    <if test="${tableCarray.carrayName_x} !=null and ${tableCarray.carrayName_x}!=''">
-                    <#else>
-                    <if test="${tableCarray.carrayName_x} !=null">
-                    </#if>
-                ${tableCarray.carrayName}=<@mapperEl tableCarray.carrayName_x/>,
-                </if>
-                </#if>
+    <#list tableCarrays as tableCarray>
+        <#if tableCarray_index != 0 && tableCarray.carrayName_x != 'bfCode' && tableCarray.carrayName_x !="gmtCreateTime" && tableCarray.carrayName_x !="createUserId">
+            <#if tableCarray.carrayName_x=="gmtModifyTime">
+            ${tableCarray.carrayName}=NOW(),
+            <#else>
+            <#if tableCarray.carrayType=="String">
+            <if test="${tableCarray.carrayName_x} !=null and ${tableCarray.carrayName_x}!=''">
+            <#else>
+            <if test="${tableCarray.carrayName_x} !=null">
             </#if>
-        </#list>
+            ${tableCarray.carrayName}=<@mapperEl tableCarray.carrayName_x/>,
+            </if>
+            </#if>
+        </#if>
+    </#list>
         </set>
         where bf_code=<@mapperEl "bfCode" />
+          and rec_status = 0
     </update>
+
+    <select id="selectByBfCode" parameterType="java.lang.String" resultMap="${className_d}ResultMap">
+        select
+        <include refid="${className_d}Columns"/>
+        from
+    ${className}
+        WHERE
+        bf_code = <@mapperEl "bfCode" />
+        and rec_status = 0
+    </select>
 </mapper>

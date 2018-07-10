@@ -1,6 +1,9 @@
 package ${packageName}.controller;
 
 import java.util.*;
+
+import com.bat100.core.commond.result.Commond;
+import com.bat100.core.commond.result.ResultFactory;
 import ${packageName}.models.${className_d};
 import ${packageName}.repository.irepository.I${className_d}Repository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,44 +20,47 @@ public class ${className_d}Controller{
     }
 
     @PostMapping("${className_strike}")
-    public ${className_d} insert(${className_d} ${className_x}) {
-        int i = ${className_x}Repository.insert(${className_x});
-        System.out.println();
-        return ${className_x};
+    public String insert(${className_d} ${className_x}) {
+        return ResultFactory.resultMsg(Commond.R_SUCCESS, ${className_x}Repository.insert(${className_x}), "");
     }
 
     @PutMapping("${className_strike}")
-    public int update(${className_d} ${className_x}) {
-        return ${className_x}Repository.update(${className_x});
+    public String update(${className_d} ${className_x}) {
+        return ResultFactory.resultMsg(Commond.R_SUCCESS, ${className_x}Repository.update(${className_x}), "");
     }
 
     @DeleteMapping("${className_strike}/{id}")
-    public int delete(@PathVariable Long id) {
-        return ${className_x}Repository.delete(id);
+    public String delete(@PathVariable Integer id) {
+        return ResultFactory.resultMsg(Commond.R_SUCCESS, ${className_x}Repository.delete(id), "");
     }
 
     @GetMapping("${className_strike}/{id}")
-    public ${className_d} select(@PathVariable Long id){
-        return ${className_x}Repository.select(id);
+    public String select(@PathVariable Integer id){
+        return ResultFactory.resultMsg(Commond.R_SUCCESS, ${className_x}Repository.select(id), "");
     }
 
     @GetMapping("${className_strike}/count")
-    public Long cntByMap(@RequestParam Map<String,Object> map){
-        return ${className_x}Repository.cntByMap(map);
+    public String cntByMap(@RequestParam Map<String,Object> map){
+        return ResultFactory.resultMsg(Commond.R_SUCCESS, ${className_x}Repository.cntByMap(map), "");
     }
 
     @GetMapping("${className_strike}/ids")
-    public List<Long> getByMap(@RequestParam Map<String,Object> map){
-        return ${className_x}Repository.getByMap(map);
+    public String getByMap(@RequestParam Map<String,Object> map){
+        return ResultFactory.resultMsg(Commond.R_SUCCESS, ${className_x}Repository.getByMap(map), "");
     }
 
     @GetMapping("${className_strike}/list")
-    public List<${className_d}> getByMapList(@RequestParam Map<String,Object> map){
-        return ${className_x}Repository.getByMapList(map);
+    public String getByMapList(@RequestParam Map<String,Object> map){
+        return ResultFactory.resultMsg(Commond.R_SUCCESS, ${className_x}Repository.getByMapList(map), "");
     }
 
     @PutMapping("${className_strike}/by-code")
-    public int updateByCode(${className_d} ${className_x}) {
-        return ${className_x}Repository.updateByCode(${className_x});
+    public String updateByCode(${className_d} ${className_x}) {
+        return ResultFactory.resultMsg(Commond.R_SUCCESS, ${className_x}Repository.updateByCode(${className_x}), "");
+    }
+
+    @GetMapping("${className_strike}/by-code")
+    public String selectByBfCode(@RequestParam(value = "bfCode") String bfCode){
+        return ResultFactory.resultMsg(Commond.R_SUCCESS, ${className_x}Repository.selectByBfCode(bfCode), "");
     }
 }
