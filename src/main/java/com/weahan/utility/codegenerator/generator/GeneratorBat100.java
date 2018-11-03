@@ -163,40 +163,43 @@ public class GeneratorBat100 {
                                 File.separator + serviceFileName);
             }
 
-            if (config.getOpenRepository()) {
+            if (config.getOpenIRepository()) {
                 // 3、copy irepository
                 String irepositoryFileName = "I" + fileName + "Repository.java";
                 CopyFile.copy(filePath + "provider" +
-                                File.separator + "repository" +
-                                File.separator + "irepository" +
-                                File.separator + irepositoryFileName,
-                        config.getDestPath() +
-                                File.separator + config.getiRepositoryModuleName() +
-                                File.separator + "src" +
-                                File.separator + "main" +
-                                File.separator + "java" +
-                                File.separator + packagePath +
-                                File.separator + "repository" +
-                                File.separator + "irepository" +
-                                File.separator + irepositoryFileName);
+                        File.separator + "repository" +
+                        File.separator + "irepository" +
+                        File.separator + irepositoryFileName,
+                    config.getDestPath() +
+                        File.separator + config.getiRepositoryModuleName() +
+                        File.separator + "src" +
+                        File.separator + "main" +
+                        File.separator + "java" +
+                        File.separator + packagePath +
+                        File.separator + "repository" +
+                        File.separator + "irepository" +
+                        File.separator + irepositoryFileName);
+            }
 
+            if (config.getOpenMapper()) {
                 // 4、copy mapper
                 String mapperFileName = fileName + "Mapper.java";
                 CopyFile.copy(filePath + "provider" +
-                                File.separator + "repository" +
-                                File.separator + "mapper" +
-                                File.separator + mapperFileName,
-                        config.getDestPath() +
-                                File.separator + config.getMapperModuleName() +
-                                File.separator + "src" +
-                                File.separator + "main" +
-                                File.separator + "java" +
-                                File.separator + packagePath +
-                                File.separator + "repository" +
-                                File.separator + "mapper" +
-                                File.separator + mapperFileName);
+                        File.separator + "repository" +
+                        File.separator + "mapper" +
+                        File.separator + mapperFileName,
+                    config.getDestPath() +
+                        File.separator + config.getMapperModuleName() +
+                        File.separator + "src" +
+                        File.separator + "main" +
+                        File.separator + "java" +
+                        File.separator + packagePath +
+                        File.separator + "repository" +
+                        File.separator + "mapper" +
+                        File.separator + mapperFileName);
+            }
 
-
+            if (config.getOpenRepository()) {
                 // 5、copy repository
                 String repositoryFileName = fileName + "Repository.java";
                 CopyFile.copy(filePath + "provider" +
